@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Enrollment Form</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Enrollment Form</h2>
+    <form th:action="@{/register}" th:object="${student}" method="post">
+        <div>
+            First Name: <input type="text" th:field="*{firstName}" />
+            <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        </div>
+        <div>
+            Last Name: <input type="text" th:field="*{lastName}" />
+            <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        </div>
+        <div>
+            Sex:
+            <input type="radio" th:field="*{gender}" value="Male"/> Male
+            <input type="radio" th:field="*{gender}" value="Female"/> Female
+            <span class="error" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+        </div>
+        <div>
+            Date of birth: <input type="text" th:field="*{dob}" />
+            <span class="error" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+        </div>
+        <div>
+            Email: <input type="text" th:field="*{email}" />
+            <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div>
+            Section:
+            <div th:each="sec : ${sections}">
+                <input type="radio" th:field="*{section}" th:value="${sec}"/> <span th:text="${sec}"></span>
+            </div>
+            <span class="error" th:if="${#fields.hasErrors('section')}" th:errors="*{section}"></span>
+        </div>
+        <div>
+            Country:
+            <select th:field="*{country}">
+                <option value="">--Select--</option>
+                <option th:each="c : ${countries}" th:value="${c}" th:text="${c}"></option>
+            </select>
+            <span class="error" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></span>
+        </div>
+        <div>
+            First Attempt?
+            <input type="checkbox" th:field="*{firstAttempt}" />
+        </div>
+        <div>
+            Subjects:
+            <select multiple="multiple" th:field="*{subjects}">
+                <option th:each="s : ${subjects}" th:value="${s}" th:text="${s}"></option>
+            </select>
+            <span class="error" th:if="${#fields.hasErrors('subjects')}" th:errors="*{subjects}"></span>
+        </div>
+        <br/>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

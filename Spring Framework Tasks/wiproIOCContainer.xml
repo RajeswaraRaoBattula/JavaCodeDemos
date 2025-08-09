@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring framework xml xsd -->
+<!-- xsd:: XML SCHEMA DEFINITION -->
+
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"  
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/oxm  
+        http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd        
+        http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd	
+	   http://www.springframework.org/schema/tx
+       https://www.springframework.org/tx/spring-tx.xsd" >
+       
+       <bean class="springprograms.SampleBean" id="mybean1" scope="singleton">
+ 				<!-- setter method DEPENDENCY injection(bean property) -->
+ 	
+ 					<!-- calling setUsername() -->
+	<property name="username" value="Thananya" />
+ 	</bean>
+ 	<bean class="springprograms.Student" id="mybean2" abstract="true">
+		<property name="sid" value="1000" />
+		<property name="sname" value="Thananya" />
+	</bean>
+ 	
+ 	    	<!-- inheritance -->
+	<bean class="springprograms.Student_Course" id="mybean3" parent="mybean2">
+		<property name="courseid" value="10" />
+		<property name="coursename" value="Java" />
+	</bean>
+	
+	<bean class="springprograms.Branch" id="bobj">
+		<property name="city" value="Bangalore" />
+		<property name="state" value="Karnataka" />
+	</bean>
+    
+    <bean class="springprograms.Branch" id="mybranch">
+		<property name="city" value="Chennai" />
+		<property name="state" value="Tamilnadu" />
+	</bean>
+    
+        <bean class="springprograms.Bank" id="mybank_1">
+    		<property name="bankname" value="HDFC" />
+    		<property name="managername" value="Kanishka" />
+        			<!-- has a relationship -->
+		<!-- one bean definition can be injected into another bean definition with 
+			the help of "REF" attribute -->
+    
+ 			<!-- bobj is a object property, so ref attribute -->
+    		<property name="bobj"  ref="mybranch"/>
+ 	</bean>
+ 	
+ 	<bean class="springprograms.Bank" id="mybank_2">
+		<property name="bankname" value="AXIS" />
+		<property name="managername" value="Abi" />
+		<property name="bobj"><!--TIGHTLY COUPLED SETTER INJECTION -->
+			<!-- SETTER INJECTION(inner beans not accessible outside!) -->
+		<bean class="springprograms.Branch">
+				<property name="city" value="Trichy" />
+				<property name="state" value="Tamilnadu" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 3 Bean object for supplier class -->
+	<bean class="springprograms.Supplier" id="suppobj">
+		<property name="supplierid" value="10" />
+		<property name="suppliername" value="Arista" />
+	</bean>
+		<bean class="springprograms.Supplier" id="suppobj1">
+		<property name="supplierid" value="11" />
+		<property name="suppliername" value="Dell" />
+	</bean>
+	<bean class="springprograms.Supplier" id="suppobj2">
+		<property name="supplierid" value="12" />
+		<property name="suppliername" value="HP" />
+	</bean>
+	
+		<!-- Setter Injection Property using Collection -->
+		<bean class="springprograms.Vendor" id="veobj">
+	    	<property name="vendorid" value="200" />
+			<property name="vendorname" value="Zebronics" />
+			<property name="customername">
+				<list>
+				<value>ZOHO</value>
+				<value>Hexaware</value>
+				<value>CTS</value>
+				<value>TCS</value>
+				<value>APPLE</value>
+				<value>DELL</value>
+				<value>Mindtree</value>	
+			</list>
+		</property>
+		<property name="branches">
+			<set>
+				<value>INDIA</value>
+				<value>US</value>
+				<value>Australia</value>
+				<value>Japan</value>
+				<value>UK</value>
+				<value>China</value>
+			</set>
+			</property>
+		<property name="itemsdata">
+			<map>
+				<entry key="10" value="Laptop"></entry>
+				<entry key="11" value="Inverter"></entry>
+				<entry key="12" value="Bluetooth"></entry>
+				<entry key="13" value="Harddisk"></entry>
+			</map>
+			</property>
+			<property name="slist">
+				<!-- collection injection with dependent object using ref xml tag!!!!!!!!!!!!!!! -->
+		<!-- value tag is not needed bcos here we r using Supplierclass Object(2 properties) -->
+				<!-- ref tag is a child tag of list tag -->		
+		
+			<list>
+						<ref bean="suppobj1" />
+						<ref bean="suppobj2" />
+						<ref bean="suppobj" />
+			</list>
+			</property>
+	
+	</bean>
+	
+	
+       
+   </beans>
+   

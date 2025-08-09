@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define product bean -->
+    <bean id="productBean" class="springpojos.productDemo">
+        <constructor-arg value="Samsung TV"/>
+        <constructor-arg value="45000"/>
+    </bean>
+
+    <!-- Define purchase bean and inject product bean -->
+    <bean id="purchaseBean" class="springpojos.purchase">
+        <constructor-arg value="101"/> <!-- int purchaseId -->
+        <constructor-arg value="2025-08-05"/> <!-- String purchaseDate -->
+        <constructor-arg ref="productBean"/> <!-- productDemo product -->
+    </bean>
+</beans>
