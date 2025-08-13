@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Lab — Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Image Lab — Gallery</h1>
+<p>Practice with <code>&lt;img&gt;</code>, srcset, <code>&lt;picture&gt;</code>, SVG, and accessibility</p>
+
+<h2>Responsive Image Gallery</h2>
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="Myimages/Basmati Rice.jpg" alt="Basmati rice — 5 kg bag">
+        <p>Basmati rice — 5 kg bag.</p>
+    </div>
+    <div class="gallery-item">
+        <img src="Myimages/Snacks.jpg" alt="Assorted Snacks Box">
+        <p>Assorted Snacks Box<br><small>(WebP served when supported).</small></p>
+    </div>
+    <div class="notes">
+        <strong>Notes</strong>
+        <p>Use <code>srcset</code> and <code>&lt;picture&gt;</code> to reduce bandwidth and serve modern formats. Add <code>loading="lazy"</code> to defer-screen images.</p>
+    </div>
+    <div class="gallery-item">
+        <img src="Myimages/delivery-truck.jpg" alt="Delivery truck icon">
+        <p>Delivery truck (SVG inline with accessible title/desc).</p>
+    </div>
+    <div class="gallery-item">
+        <img src="Myimages/Decorative-divider.jpg" alt="" aria-hidden="true">
+        <p>Decorative divider (not read by screen readers).</p>
+    </div>
+    <div class="gallery-item">
+        <img src="Myimages/Click-img.png" alt="Store layout map with rice and snacks aisles">
+        <p>Click a section to navigate to that aisle (image map)</p>
+    </div>
+</div>
+
+<div class="submit-section">
+    <h3>Submit Lab</h3>
+    <button>Submit Lab</button>
+</div>
+
+</body>
+</html>

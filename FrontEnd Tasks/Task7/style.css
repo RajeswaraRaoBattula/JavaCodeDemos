@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: white;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #222;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+video, audio, embed, iframe {
+    display: block;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #777;
+}

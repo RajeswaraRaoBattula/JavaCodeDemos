@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Multimedia Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HTML5 Multimedia Lab</h1>
+        <p>This page demonstrates video, audio, embed (PDF), iframe, and inline SVG. Below is a visual preview.</p>
+
+        <!-- Video -->
+        <h2>Video (sample.mp4)</h2>
+        <video controls poster="poster.jpg" width="500">
+            <source src="sample.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Audio -->
+        <h2>Audio (sample.mp3)</h2>
+        <audio controls loop>
+            <source src="sample.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- PDF Embed -->
+        <h2>Embed (document.pdf)</h2>
+        <embed src="document.pdf" type="application/pdf" width="250" height="250">
+        <p>If not visible, <a href="document.pdf" download>download document.pdf</a></p>
+
+        <!-- Iframe -->
+        <h2>Iframe (demo.html)</h2>
+        <iframe src="demo.html" width="500" height="200" title="Embedded page preview"></iframe>
+        <p class="note">Preview created for the HTML5 Multimedia Lab. Files saved in the workspace.</p>
+
+        <!-- Inline SVG -->
+        <h2>Inline SVG</h2>
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,10 80,50 20,90" fill="red"/>
+        </svg>
+    </div>
+</body>
+</html>

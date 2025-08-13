@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Store Catalog</title>
+    <style>
+        /* Internal CSS */
+        body {
+            background-color: #f8f4ef;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6b4f4f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .buy-btn {
+            background-color: #6b4f4f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #543d3d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Elegant Living Furniture</h1>
+        <p>Comfort and style for your dream home</p>
+    </header>
+
+    <section class="products">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="Myimages/Sofa.jpg" alt="Sofa">
+            <h3>Sofa Set</h3>
+            <p>Luxurious and comfortable 3-seater sofa for your living room.</p>
+            <div class="price">$499</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Product 2 (Inline CSS: background color & text color change) -->
+        <div class="product-card" style="background-color: #f0f8ff;">
+            <img src="Myimages/Dining.jpg" alt="Dining Table">
+            <h3 style="color: #2a5d84;">Dining Table</h3>
+            <p>Elegant wooden dining table set for family gatherings.</p>
+            <div class="price">$699</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Product 3 (Inline CSS: custom button style) -->
+        <div class="product-card">
+            <img src="Myimages/chair.jpg" alt="Armchair">
+            <h3>Armchair</h3>
+            <p>Cozy armchair with premium fabric and strong wooden legs.</p>
+            <div class="price">$299</div>
+            <button class="buy-btn" style="background-color: darkgreen; color: white; border-radius: 20px;">Buy Now</button>
+        </div>
+
+    </section>
+
+</body>
+</html>

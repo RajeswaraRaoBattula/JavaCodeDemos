@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 150px;      
+    height: 100px;    
+    border-radius: 4px;
+}
+.notes {
+    margin-top: 10px;
+}
+
+.submit-section {
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+button {
+    padding: 8px 15px;
+    border: 1px solid #333;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f4f4f4;
+}

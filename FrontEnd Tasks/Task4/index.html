@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Feedback Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        header, nav, main, aside, footer {
+            margin-bottom: 20px;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        aside {
+            background: #f0f0f0;
+            padding: 15px;
+            border-left: 4px solid #0073e6;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #0073e6;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Website Feedback Survey</h1>
+    <p>We value your opinion. Please take a minute to share your thoughts.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <form action="feedback.php" method="post">
+        
+        <!-- Section 1: Personal Info -->
+        <section>
+            <h2>Personal Information</h2>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="10" max="100">
+        </section>
+
+        <!-- Section 2: Website Rating -->
+        <section>
+            <h2>Website Rating</h2>
+
+            <label for="design">Rate Website Design (1-10):</label>
+            <input type="range" id="design" name="design" min="1" max="10">
+
+            <p>Rate Content Quality:</p>
+            <label><input type="radio" name="content_quality" value="Excellent"> Excellent</label>
+            <label><input type="radio" name="content_quality" value="Good"> Good</label>
+            <label><input type="radio" name="content_quality" value="Average"> Average</label>
+            <label><input type="radio" name="content_quality" value="Poor"> Poor</label>
+
+            <label for="visited">Most Visited Page:</label>
+            <select id="visited" name="visited">
+                <option value="Home">Home</option>
+                <option value="Blog">Blog</option>
+                <option value="Products">Products</option>
+                <option value="Contact">Contact</option>
+            </select>
+        </section>
+
+        <!-- Section 3: Suggestions -->
+        <section>
+            <h2>Suggestions</h2>
+            <label for="suggestions">Your Comments:</label>
+            <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+
+            <label><input type="checkbox" name="contact_permission"> I agree to be contacted regarding my feedback</label>
+        </section>
+
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset</button>
+    </form>
+</main>
+
+<aside>
+    "Your feedback helps us improve our website experience for everyone."
+</aside>
+
+<footer>
+    © 2025 Website Survey
+</footer>
+
+</body>
+</html>
