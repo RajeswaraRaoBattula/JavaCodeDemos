@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Customers Array Management</title>
+    <script>
+        function manageCustomers() {
+            // 1. Ask how many customers to register
+            let count = parseInt(prompt("How many customers do you want to register?"));
+
+            // 2. Create dynamic array literal
+            let customers = [];
+            for (let i = 0; i < count; i++) {
+                let name = prompt(`Enter name of customer ${i + 1}:`);
+                customers.push(name);
+            }
+
+            // Display original customers
+            alert("Original Customers: " + customers.join(", "));
+
+            // 3. Display customer names using for...of
+            let namesList = "Customers using for...of:\n";
+            for (let name of customers) {
+                namesList += name + "\n";
+            }
+            alert(namesList);
+
+            // 4. Display customer IDs using for...in
+            let idsList = "Customer IDs using for...in:\n";
+            for (let id in customers) {
+                idsList += id + "\n";
+            }
+            alert(idsList);
+
+            // 5. Add a new customer at the end
+            customers.push("Anita");
+            alert("After push('Anita'): " + customers.join(", "));
+
+            // 6. Remove the last customer
+            customers.pop();
+            alert("After pop(): " + customers.join(", "));
+
+            // 7. Insert a new customer at position 1
+            customers.splice(1, 0, "Vikram");
+            alert("After insert 'Vikram' at position 1: " + customers.join(", "));
+
+            // 8. Delete a customer at position 2
+            customers.splice(2, 1);
+            alert("After delete at position 2: " + customers.join(", "));
+
+            // 9. Display final customer list
+            alert("Final Customers: " + customers.join(", "));
+        }
+    </script>
+</head>
+<body onload="manageCustomers()">
+</body>
+</html>

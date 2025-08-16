@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Share Market Portfolio Tracker</title>
+</head>
+<body>
+    <h1>Share Market Portfolio Tracker (Closure Example)</h1>
+
+    <button onclick="portfolio.buyShare('TCS', 10, 3500)">Buy TCS (10 @ ₹3500)</button>
+    <button onclick="portfolio.buyShare('Infosys', 5, 1500)">Buy Infosys (5 @ ₹1500)</button>
+    <button onclick="portfolio.sellShare('TCS', 3)">Sell TCS (3)</button>
+    <button onclick="portfolio.totalValue()">Show Portfolio Value</button>
+
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store Management</title>
+    <script>
+        function manageBooks() {
+            // 1. Create JSON array of books
+            let books = [
+                { title: "JavaScript Basics", author: "Anu", price: 450, available: true },
+                { title: "HTML & CSS", author: "Devi", price: 350, available: false }
+            ];
+
+            // 2. Display all books
+            let allBooks = "All Books:\n";
+            for (let book of books) {
+                allBooks += `Title: ${book.title}, Author: ${book.author}, Price: ${book.price}₹, Available: ${book.available}\n`;
+            }
+            alert(allBooks);
+
+            // 3. Display only available books
+            let availableBooks = "Available Books:\n";
+            for (let book of books) {
+                if (book.available) {
+                    availableBooks += `Title: ${book.title}, Author: ${book.author}, Price: ${book.price}₹\n`;
+                }
+            }
+            alert(availableBooks);
+
+            // 4. Add a new book
+            books.push({ title: "Node.js Guide", author: "Kumar", price: 600, available: true });
+            alert("After Adding:\n" + books.map(b => b.title).join(", "));
+
+            // 5. Update price of a specific book
+            for (let book of books) {
+                if (book.title === "JavaScript Basics") {
+                    book.price = 500;
+                }
+            }
+            let updatedPriceList = "After Price Update:\n";
+            for (let book of books) {
+                updatedPriceList += `${book.title} - ${book.price}₹\n`;
+            }
+            alert(updatedPriceList);
+
+            // 6. Delete a book (remove HTML & CSS)
+            books = books.filter(book => book.title !== "JavaScript Basics");
+            alert("After Deletion:\n" + books.map(b => b.title).join(", "));
+        }
+    </script>
+</head>
+<body onload="manageBooks()">
+</body>
+</html>

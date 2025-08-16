@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income Tax Calculator with Callbacks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+            width: 250px;
+        }
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid green;
+            background: #f0fff0;
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Income Tax Calculator</h2>
+
+<label>Name:</label><br>
+<input type="text" id="name"><br>
+
+<label>PAN:</label><br>
+<input type="text" id="pan"><br>
+
+<label>Annual Income:</label><br>
+<input type="number" id="income"><br>
+
+<button onclick="startCalculation()">Calculate Tax</button>
+
+<div id="result"></div>
+
+<script>
+    // JSON array to store tax records
+    const taxRecords = [];
+
+    // Function to calculate tax based on slabs
+    function calculateTax(name, pan, income, callback) {
+        let tax = 0;
+        if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 500000) {
+            tax = (income - 250000) * 0.05;
+        } else if (income <= 1000000) {
+            tax = (250000 * 0.05) + (income - 500000) * 0.2;
+        } else {
+            tax = (250000 * 0.05) + (500000 * 0.2) + (income - 1000000) * 0.3;
+        }
+        callback(name, pan, income, tax);
+    }
+
+    // Callback 1 → Log to console
+    function logToConsole(name, pan, income, tax) {
+        console.log(`Name: ${name}, PAN: ${pan}, Income: ₹${income}, Tax: ₹${tax}`);
+    }
+
+    // Callback 2 → Display on HTML page
+    function displayOnPage(name, pan, income, tax) {
+        document.getElementById("result").innerHTML = `
+            <strong>Tax Calculation Result:</strong><br>
+            Name: ${name} <br>
+            PAN: ${pan} <br>
+            Income: ₹${income.toLocaleString()} <br>
+            Tax: ₹${tax.toLocaleString()}
+        `;
+    }
+
+    // Callback 3 → Save to taxRecords array
+    function saveToRecords(name, pan, income, tax) {
+        taxRecords.push({ name, pan, income, tax });
+        console.log("Updated Tax Records:", JSON.stringify(taxRecords, null, 2));
+    }
+
+    // Function to execute all callbacks
+    function handleAllCallbacks(name, pan, income, tax) {
+        logToConsole(name, pan, income, tax);
+        displayOnPage(name, pan, income, tax);
+        saveToRecords(name, pan, income, tax);
+    }
+
+    // Main function to start calculation
+    function startCalculation() {
+        let name = document.getElementById("name").value;
+        let pan = document.getElementById("pan").value;
+        let income = parseFloat(document.getElementById("income").value);
+
+        if (!name || !pan || isNaN(income) || income < 0) {
+            alert("Please enter valid details.");
+            return;
+        }
+
+        calculateTax(name, pan, income, handleAllCallbacks);
+    }
+</script>
+
+</body>
+</html>

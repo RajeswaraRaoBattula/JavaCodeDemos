@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <script>
+        function startQuiz() {
+            // 1. Welcome the user
+            alert("Welcome to the JavaScript Quiz Game!");
+
+            // 2. Ask the user's name
+            let name = prompt("What's your name?");
+            if (!name) {
+                name = "Player";
+            }
+
+            // 3. Confirm if ready
+            let ready = confirm(`Hi ${name}, are you ready for the quiz?`);
+            if (ready) {
+                // 4. Multiple-choice question
+                let answer = prompt(
+                    "What is 20% of 250?\nA. 60\nB. 150\nC. 50\nType A, B, or C:"
+                );
+
+                // 5. Check and display result
+                if (answer && answer.toUpperCase() === "C") {
+                    alert(`Correct, ${name}! 50 is the correct answer.`);
+                } else {
+                    alert(`Sorry, ${name}. That's wrong. The correct answer is 50.`);
+                }
+            } else {
+                alert("No worries! Come back when you are ready.");
+            }
+        }
+    </script>
+</head>
+<body onload="startQuiz()">
+</body>
+</html>
